@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title> Music </title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" th:href="@{/images/icons/favicon.ico}" />
+    <!--===============================================================================================-->
+
+    <!--===============================================================================================-->
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" th:href="@{/css/materialize.min.css}" media="screen,projection" />
+</head>
+
+<body>
+    <div class="parallax-container">
+        <div class="parallax"><img th:src="@{/images/guitar.png}"></div>
+    </div>
+
+    <div class="section">
+        <div class="row valign-wrapper login-box">
+            <div class="col s8 pull-s2 ">
+                <div class="card  lighten-5">
+                    <span class="card-title center-align">
+                        <h1 class="center-align">Registar um País</h1>
+                    </span>
+                    <div class="card-content">
+                        <form th:action="@{/save}" method="POST" th:object="${country}" enctype="multipart/form-data">
+
+                            <div class="wrap-input100 validate-input" data-validate="Enter Nome">
+                                <input class="input100" type="text" th:field="*{nome}" name="nome" placeholder="Nome">
+                                <span class="focus-input100" data-placeholder="&#xf207;"></span>
+                            </div>
+
+                            <div class="input-field ">
+                                <select th:field="*{continente}">
+                                    <option value="" disabled selected>Selecione o Developer</option>
+                                    <option th:each=" continent: ${continents}" th:value="${continent}">
+                                        <p th:text="${continent}"></p>
+                                    </option>
+                                </select>
+                                <label>Continente</label>
+                            </div>
+
+                            <div class="wrap-input100 validate-input" data-validate="Enter Regiao">
+                                <input class="input100" type="text" th:field="*{regiao}" name="regiao"
+                                    placeholder="Regiao">
+                                <span class="focus-input100" data-placeholder="&#xf207;"></span>
+                            </div>
+
+
+
+                            <div class="container-login100-form-btn">
+                                <button class="btn btn-large cyan pulse" type="submit">
+                                    Submeter
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="parallax-container">
+        <div class="parallax"><img th:src="@{/images/guitar.png}"></div>
+    </div>
+
+
+
+
+
+    <div id="dropDownSelect1"></div>
+
+    <!--===============================================================================================-->
+    <script th:src="@{/vendor/jquery/jquery-3.2.1.min.js}"></script>
+    <!--===============================================================================================-->
+    <script th:src="@{/vendor/animsition/js/animsition.min.js}"></script>
+    <!--===============================================================================================-->
+    <script th:src="@{/vendor/daterangepicker/moment.min.js}"></script>
+    <script th:src="@{/vendor/daterangepicker/daterangepicker.js}"></script>
+    <!--===============================================================================================-->
+    <script th:src="@{/vendor/countdowntime/countdowntime.js}"></script>
+    <!--===============================================================================================-->
+    <script th:src="@{/js/main.js}"></script>
+
+    <script th:src="@{/js/dropzone/dist/dropzone.js}"></script>
+
+    <script type="text/javascript" th:src="@{/js/materialize.min.js}"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('.parallax').parallax();
+        });
+
+        // Or with jQuery
+
+        $(document).ready(function () {
+            $('select').formSelect();
+        });
+    </script>
+
+</body>
+
+</html>

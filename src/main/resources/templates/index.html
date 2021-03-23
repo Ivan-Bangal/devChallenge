@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title> Main Menu</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!--===============================================================================================-->
+    <link rel="icon" type="image/png" th:href="@{/images/icons/favicon.ico}" />
+    <!--===============================================================================================-->
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link type="text/css" rel="stylesheet" th:href="@{/css/materialize.min.css}" media="screen,projection" />
+
+</head>
+
+<body>
+
+    <h1 style="color: black;" class="center-align"> Listar Países</h1>
+    <table class="highlight responsive-table centered">
+        <thead>
+            <tr>
+                <th>Nome do País</th>
+                <th>Continente</th>
+                <th>Região</th>
+                <th>Area</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="country : ${countries}">
+                <td>
+                    <p th:text="${country.nome}"></p>
+                </td>
+                <td>
+                    <p th:text="${country.continente}"></p>
+                </td>
+                <td>
+                    <p th:text="${country.regiao}"></p>
+                </td>
+                <td>
+                    <p th:text="${country.area}"></p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+    <a class="btn-floating btn-large waves-effect waves-light red" th:href="@{/create}"><i
+        class="material-icons">add</i></a>
+
+        <!--===============================================================================================-->
+        <script th:src="@{/vendor/jquery/jquery-3.2.1.min.js}"></script>
+
+        <!--===============================================================================================-->
+        <script th:src="@{/js/main.js}"></script>
+
+        <script type="text/javascript" th:src="@{/js/materialize.min.js}"></script>
+</body>
+
+</html>
